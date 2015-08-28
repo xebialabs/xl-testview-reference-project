@@ -1,0 +1,40 @@
+apply plugin: "java"
+apply plugin: "idea"
+apply plugin: "eclipse"
+
+sourceCompatibility = 1.7
+version = '1.0'
+
+repositories {
+  mavenCentral()
+}
+
+//
+//ext.succeed = project.hasProperty('succeed') && project.getProperty('succeed') == 'true'
+//
+//dependencies {
+//  testCompile group: 'junit', name: 'junit', version: '4.11'
+//  testCompile 'org.testng:testng:6.8.21'
+//}
+//
+//task testNG(type: Test) {
+//  useTestNG()
+//  ignoreFailures = true
+//  outputs.upToDateWhen { false }
+//  options {
+//    listeners << 'org.testng.reporters.JUnitReportReporter'
+//  }
+//
+//  println succeed
+//  systemProperty 'succeed', succeed
+//}
+//
+//
+//test {
+//  ignoreFailures = true;
+//  // Force gradle to always rerun this test
+//  outputs.upToDateWhen { false }
+//  systemProperty 'succeed', succeed
+//}
+//
+//check.dependsOn testNG
