@@ -1,0 +1,46 @@
+-------------------------------------------------------------------------------
+Test set: com.xebialabs.xltest.reference.mvnjunitcucumber.p1.MvnJunitCucumber1Test
+-------------------------------------------------------------------------------
+Tests run: 21, Failures: 4, Errors: 2, Skipped: 0, Time elapsed: 0.351 sec <<< FAILURE!
+And we still fail(Scenario: Perform a reference test)  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:86)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.junit.Assert.assertTrue(Assert.java:52)
+	at com.xebialabs.xltest.reference.mvnjunitcucumber.p1.MvnJunitCucumber1Steps.willFail2(MvnJunitCucumber1Steps.java:50)
+	at ✽.And we still fail(com/xebialabs/xltest/reference/mvnjunitcucumber/p1/FailureWithParametersTest.feature:8)
+
+Scenario: Perform a reference test  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:86)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.junit.Assert.assertTrue(Assert.java:52)
+	at com.xebialabs.xltest.reference.mvnjunitcucumber.p1.MvnJunitCucumber1Steps.willFail2(MvnJunitCucumber1Steps.java:50)
+	at ✽.And we still fail(com/xebialabs/xltest/reference/mvnjunitcucumber/p1/FailureWithParametersTest.feature:8)
+
+And I will fail(Scenario: Perform a reference test)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:86)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.junit.Assert.assertTrue(Assert.java:52)
+	at com.xebialabs.xltest.reference.mvnjunitcucumber.p1.MvnJunitCucumber1Steps.willFail(MvnJunitCucumber1Steps.java:26)
+	at ✽.And I will fail(com/xebialabs/xltest/reference/mvnjunitcucumber/p1/MvnJunitCucumber2Test.feature:8)
+
+Scenario: Perform a reference test  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:86)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.junit.Assert.assertTrue(Assert.java:52)
+	at com.xebialabs.xltest.reference.mvnjunitcucumber.p1.MvnJunitCucumber1Steps.willFail(MvnJunitCucumber1Steps.java:26)
+	at ✽.And I will fail(com/xebialabs/xltest/reference/mvnjunitcucumber/p1/MvnJunitCucumber2Test.feature:8)
+
+Then I will throw(Scenario: Perform a reference test)  Time elapsed: 0 sec  <<< ERROR!
+java.lang.RuntimeException: Boom!
+	at com.xebialabs.xltest.reference.mvnjunitcucumber.p1.MvnJunitCucumber1Steps.willThrow(MvnJunitCucumber1Steps.java:31)
+	at ✽.Then I will throw(com/xebialabs/xltest/reference/mvnjunitcucumber/p1/MvnJunitCucumber3Test.feature:6)
+
+Scenario: Perform a reference test  Time elapsed: 0 sec  <<< ERROR!
+java.lang.RuntimeException: Boom!
+	at com.xebialabs.xltest.reference.mvnjunitcucumber.p1.MvnJunitCucumber1Steps.willThrow(MvnJunitCucumber1Steps.java:31)
+	at ✽.Then I will throw(com/xebialabs/xltest/reference/mvnjunitcucumber/p1/MvnJunitCucumber3Test.feature:6)
+
