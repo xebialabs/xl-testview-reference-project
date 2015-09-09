@@ -1,8 +1,6 @@
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 apply plugin: 'idea'
-apply plugin: 'com.moowork.grunt'
-apply plugin: 'com.moowork.node'
 
 sourceCompatibility = 1.7
 
@@ -18,8 +16,6 @@ dependencies {
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:slf4j-api:1.7.7'
 
-  classpath 'com.moowork.gradle:gradle-grunt-plugin:0.6'
-  classpath 'com.moowork.gradle:gradle-node-plugin:0.8'
 
     // Declare the dependency for your favourite test framework you want to use in your tests.
     // TestNG is also supported by the Gradle Test task. Just change the
@@ -32,18 +28,4 @@ test {
   ignoreFailures = true;
   // Force gradle to always rerun this test
   outputs.upToDateWhen { false }
-}
-
-
-
-node {
-  // Version of node to use.
-  version = '0.10.33'
-  // Base URL for fetching node distributions (change or activate it, when using a private mirror).
-  // distBaseUrl = 'http://foo.bar.com/dist/nodejs'
-
-  // Enabled the automatic download. False is the default. This always downloads a local node env into the workspace!
-  download = true
-  // define a local workdir, where the downloaded Node.JS is put into.
-  workDir = file("${project.buildDir}/nodejs")
 }
