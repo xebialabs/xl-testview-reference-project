@@ -1,4 +1,4 @@
-package com.xebialabs.xltest.reference.p1;
+package com.xebialabs.xltest.reference.p3;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -11,56 +11,6 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
 public class Junit {
-
-    @Test
-    public void succeed() {
-        assertTrue(true);
-    }
-
-    @Test
-    @Ignore
-    public void ignore() {
-
-    }
-
-    @Test
-    public void willFail() {
-        fail();
-    }
-
-    @Test
-    public void failWithMessage() {
-        assertThat("true != false", true, is(false));
-    }
-
-    @Test
-    public void exceptionWithMessage() {
-        throw new RuntimeException("Exception with message");
-    }
-
-    @Test
-    public void exceptionWithoutMessage() {
-        throw new RuntimeException();
-    }
-
-    @Test(expected = IllegalArgumentException.class)
-    public void expectedException() {
-        throw new IllegalArgumentException();
-    }
-
-    @Test
-    public void throwError() {
-        throw new InternalError();
-    }
-
-    @Test(timeout = 10)
-    public void timeOut() {
-        try {
-            TimeUnit.MILLISECONDS.sleep(100);
-        } catch (InterruptedException e) {
-
-        }
-    }
 
     @Test
     public void random1() {
