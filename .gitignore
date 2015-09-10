@@ -13,3 +13,6 @@ hs_err_pid*
 *.iws
 junit/build
 testng/build
+karma/node_modules/jasmine/node_modules
+karma/node_modules
+TESTS-*.xml
