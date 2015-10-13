@@ -8,6 +8,7 @@ import static junit.framework.TestCase.assertTrue;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
+import static org.junit.Assume.*;
 
 public class JunitReference {
     @Test
@@ -21,6 +22,8 @@ public class JunitReference {
 
     }
 
+    @Test
+    public void falseAssumption() { assumeTrue(false); }
     @Test
     public void willFail() {
         fail();
