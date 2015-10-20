@@ -16,3 +16,7 @@ testng/build
 karma/node_modules/jasmine/node_modules
 karma/node_modules
 TESTS-*.xml
+gradlejunit/build
+mvnjunit/target
+mvntestng/target
+mvnjunitcucumber/target
