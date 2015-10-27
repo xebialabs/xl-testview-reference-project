@@ -1,4 +1,4 @@
-package com.xebialabs.xltest.reference.mvntestng.p1;
+package com.xebialabs.xltest.reference.mvnjunit.p2;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -10,7 +10,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
-public class MvnJunit1Test {
+public class MvnJunit2Test {
 
     @Test
     public void succeed() {
