@@ -3,6 +3,7 @@ package com.xebialabs.xltest.reference.mvnjunitcucumber.p1;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Ignore;
 
 import static org.junit.Assert.assertTrue;
 
@@ -23,6 +24,12 @@ public class MvnJunitCucumber1Steps {
 
     @Then("I will fail")
     public void willFail() {
+        assertTrue(false);
+    }
+
+    @Ignore
+    @Then("I will be ignored")
+    public void willBeIgnored() {
         assertTrue(false);
     }
 
