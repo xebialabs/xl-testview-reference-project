@@ -20,3 +20,6 @@ gradlejunit/build
 mvnjunit/target
 mvntestng/target
 mvnjunitcucumber/target
+.idea
+*.iml
+.gradle
