@@ -1,4 +1,4 @@
-package com.xebialabs.xltest.reference.mvntestng.p3;
+package com.xebialabs.xltest.reference.mvnjunit.p3;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;

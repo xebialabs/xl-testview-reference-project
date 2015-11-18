@@ -1,41 +1,38 @@
-package com.xebialabs.xltest.reference.mvntestng.p2;
+package com.xebialabs.xltest.reference.mvnjunit.p1;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
-import static junit.framework.TestCase.assertTrue;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.fail;
+import static org.testng.AssertJUnit.assertTrue;
 
-public class MvnJunit2Test {
+@Test
+public class MvnTestng1Test {
 
     @Test
     public void succeed() {
         assertTrue(true);
     }
 
-    @Test
-    @Ignore
+    @Test(enabled = false)
     public void ignore() {
 
     }
 
     @Test
     public void willFail() {
-        fail();
+        Assert.fail();
     }
 
     @Test
     public void failWithMessage() {
-        assertThat("true != false", true, is(false));
+        assertTrue("This fails", false);
     }
 
     @Test
     public void exceptionWithMessage() {
-        throw new RuntimeException("Exception with message");
+        throw new RuntimeException("Oeps");
     }
 
     @Test
@@ -43,7 +40,7 @@ public class MvnJunit2Test {
         throw new RuntimeException();
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test(expectedExceptions = IllegalArgumentException.class)
     public void expectedException() {
         throw new IllegalArgumentException();
     }
@@ -53,7 +50,7 @@ public class MvnJunit2Test {
         throw new InternalError();
     }
 
-    @Test(timeout = 10)
+    @Test(timeOut = 10)
     public void timeOut() {
         try {
             TimeUnit.MILLISECONDS.sleep(100);
@@ -65,60 +62,60 @@ public class MvnJunit2Test {
     @Test
     public void random1() {
         Random r = new Random();
-        assertThat(r.nextBoolean(), is(true));
+        Assert.assertTrue(r.nextBoolean());
     }
 
     @Test
     public void random2() {
         Random r = new Random();
-        assertThat(r.nextBoolean(), is(true));
+        Assert.assertTrue(r.nextBoolean());
     }
 
     @Test
     public void random3() {
         Random r = new Random();
-        assertThat(r.nextBoolean(), is(true));
+        Assert.assertTrue(r.nextBoolean());
     }
 
     @Test
     public void random4() {
         Random r = new Random();
-        assertThat(r.nextBoolean(), is(true));
+        Assert.assertTrue(r.nextBoolean());
     }
 
     @Test
     public void random5() {
         Random r = new Random();
-        assertThat(r.nextBoolean(), is(true));
+        Assert.assertTrue(r.nextBoolean());
     }
 
     @Test
     public void random6() {
         Random r = new Random();
-        assertThat(r.nextBoolean(), is(true));
+        Assert.assertTrue(r.nextBoolean());
     }
 
     @Test
     public void random7() {
         Random r = new Random();
-        assertThat(r.nextBoolean(), is(true));
+        Assert.assertTrue(r.nextBoolean());
     }
 
     @Test
     public void random8() {
         Random r = new Random();
-        assertThat(r.nextBoolean(), is(true));
+        Assert.assertTrue(r.nextBoolean());
     }
 
     @Test
     public void random9() {
         Random r = new Random();
-        assertThat(r.nextBoolean(), is(true));
+        Assert.assertTrue(r.nextBoolean());
     }
 
     @Test
     public void random10() {
         Random r = new Random();
-        assertThat(r.nextBoolean(), is(true));
+        Assert.assertTrue(r.nextBoolean());
     }
 }
