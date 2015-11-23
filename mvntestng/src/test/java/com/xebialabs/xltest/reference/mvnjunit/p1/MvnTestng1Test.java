@@ -1,15 +1,14 @@
-package com.xebialabs.xltest.reference.mvntestng.p3;
+package com.xebialabs.xltest.reference.mvnjunit.p1;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static org.testng.Assert.fail;
 import static org.testng.AssertJUnit.assertTrue;
 
 @Test
-public class MvnTestng3Test {
+public class MvnTestng1Test {
 
     @Test
     public void succeed() {
@@ -23,7 +22,7 @@ public class MvnTestng3Test {
 
     @Test
     public void willFail() {
-        fail();
+        Assert.fail();
     }
 
     @Test

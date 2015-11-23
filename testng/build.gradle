@@ -31,3 +31,17 @@ dependencies {
   testCompile 'org.testng:testng:6.8.21'
 }
 
+test {
+  // enable TestNG support (default is JUnit)
+  useTestNG()
+}
+
+task testXmlReporter(type: Test) {
+  //Uses the TestNG report (see: http://testng.org/doc/documentation-main.html, search for XML Reports)
+  //It will appear in build/reports/tests/
+  useTestNG()
+  options {
+    listeners << 'org.testng.reporters.XMLReporter'
+  }
+}
+

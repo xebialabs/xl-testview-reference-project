@@ -28,6 +28,4 @@ describe("Ref test", function() {
     setTimeout( done , 10 );
   }, 5); // changes to 10 seconds
 
-
-
 });
