@@ -1,0 +1,4 @@
+!1 A Passing !-FitNesse-! Test
+| com.xebialabs.test.reference.Division |
+| numerator | denominator | quotient? |
+| 10 | 2 | 5.0 |
