@@ -1,9 +1,0 @@
-!***< Hidden
-
-!path build/classes/main
-!define TEST_SYSTEM {slim}
-*!
-
-!1 Test suite Reference suit
-
-This is a reference Fitnesse test suite
