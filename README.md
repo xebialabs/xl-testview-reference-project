@@ -13,3 +13,18 @@ There are roughly 3 variables when producing test results:
 3. Which reporting tool is used? (Maven Surefire? jUnit own reporter?)
 
 test result files may be different when changing one of the variables. Therefor being very explicit about the variables is vital.
+
+## Test tools
+
+This project has the following tools supported:
+
+
+|Build tool|Test tool|Format|
+|----------|---------|------|
+|[Fitnesse](./fitnesse)|NA|Fitnesse specific|
+|[Cucumber](./mvnjunitcucumber)|Maven|JUnit|
+|[TestNG](./testng)|Gradle|JUnit|
+|[TestNG](./mvntestng)|Maven|JUnit|
+|[JUnit](./mvnjunit)|Maven|JUnit|
+|[JUnit](./gradlejunit)|Gradle|JUnit|
+|[Karma](./karma)|Karma|JUnit|
