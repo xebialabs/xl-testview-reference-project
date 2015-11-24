@@ -1,1 +1,15 @@
-This is a project that contains several tests with randomized results.
+# Test Results Reference Project
+This project serves two purposes:
+
+1. Generate test results for all kinds of tools in all kinds of situations. So that XL-TestView has one source of truth to depend its test-results parsers on.
+
+2. Generate random results for importing test-data
+
+## Things you must know when producing test results
+There are roughly 3 variables when producing test results:
+
+1. Which test tool is used? (jUnit, etc)
+2. Which build tool is used? (Ant, Maven, etc)
+3. Which reporting tool is used? (Maven Surefire? jUnit own reporter?)
+
+test result files may be different when changing one of the variables. Therefor being very explicit about the variables is vital.
