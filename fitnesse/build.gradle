@@ -2,6 +2,8 @@ group 'com.xebialabs.xltest.reference'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'idea'
 
 sourceCompatibility = 1.7
 
@@ -9,12 +11,63 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    fitnesse
+}
+
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    fitnesse 'org.fitnesse:fitnesse:20150814'
 }
 
 test {
     ignoreFailures = true;
     // Force gradle to always rerun this test
     outputs.upToDateWhen { false }
+}
+
+task("writeFitNesseClasspath", type: WriteFitNesseClasspath) {
+    classpath = project.configurations.fitnesse + project.configurations.testCompile
+
+    pagePath = project.file("FitNesseRoot/GradleClasspath")
+}
+
+task("run", type: JavaExec) {
+    dependsOn writeFitNesseClasspath
+    dependsOn compileJava
+    dependsOn compileTestJava
+    classpath configurations.fitnesse + configurations.testCompile
+    main "fitnesseMain.FitNesseMain"
+//    args "-p", "8000", "-e", "0"
+    args "-p", "8000", "-o", "-c", "ReferenceTest?suite&format=text"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.6'
+}
+
+/// === Custom Tasks
+
+class WriteFitNesseClasspath extends DefaultTask {
+    @Input
+    def classpath
+
+    @OutputDirectory
+    File pagePath
+
+    @TaskAction
+    def generatePage() {
+        def contentTxt = project.file("${pagePath}/content.txt")
+        contentTxt.createNewFile()
+        contentTxt.withWriter { writer ->
+            writer.writeLine("!path ${project.sourceSets.main.output.classesDir}")
+            writer.writeLine("!path ${project.sourceSets.test.output.classesDir}")
+            writer.writeLine("!path src/main/resources")
+            writer.writeLine("!path src/test/resources")
+            classpath.each { d ->
+                writer.writeLine("!path $d")
+            }
+        }
+    }
 }

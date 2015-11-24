@@ -4,6 +4,7 @@ updateDoNotCopyOverList
 ErrorLogs/*
 FitNesse/*
 files/testResults/*
+GradleClasspath
 files/testProgress/*
 .svn
 .DS_Store
