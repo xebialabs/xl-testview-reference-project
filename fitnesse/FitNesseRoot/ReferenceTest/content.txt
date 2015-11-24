@@ -3,7 +3,9 @@
 !path build/classes/main
 !define TEST_SYSTEM {slim}
 *!
-
 !1 Test suite Reference
+This is the Fitnesse test suite reference project.
 
-This is a reference Fitnesse test suite
+Click on 'suite' at the top to execute all tests.
+
+!contents
