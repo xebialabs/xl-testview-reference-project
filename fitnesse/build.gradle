@@ -5,8 +5,6 @@ apply plugin: 'java'
 apply plugin: 'maven'
 apply plugin: 'idea'
 
-sourceCompatibility = 1.7
-
 repositories {
     mavenCentral()
 }
@@ -33,13 +31,22 @@ task("writeFitNesseClasspath", type: WriteFitNesseClasspath) {
     pagePath = project.file("FitNesseRoot/GradleClasspath")
 }
 
-task("run", type: JavaExec) {
+task("run", type: JavaExec, description: "Run Fitnesse at port 8000") {
     dependsOn writeFitNesseClasspath
     dependsOn compileJava
     dependsOn compileTestJava
     classpath configurations.fitnesse + configurations.testCompile
     main "fitnesseMain.FitNesseMain"
-//    args "-p", "8000", "-e", "0"
+    args "-p", "8000", "-e", "0"
+}
+
+task("testReference", type: JavaExec, description: "Run Fitnesse and execute ReferenceTest suite page") {
+    dependsOn writeFitNesseClasspath
+    dependsOn compileJava
+    dependsOn compileTestJava
+
+    classpath configurations.fitnesse + configurations.testCompile
+    main "fitnesseMain.FitNesseMain"
     args "-p", "8000", "-o", "-c", "ReferenceTest?suite&format=text"
 }
 
