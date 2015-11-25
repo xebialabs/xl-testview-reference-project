@@ -1,7 +1,7 @@
 # Test Results Reference Project
 This project serves two purposes:
 
-1. Generate test results for all kinds of tools in all kinds of situations. So that XL-TestView has one source of truth to depend its test-results parsers on.
+1. Generate test results for all kinds of tools in all kinds of situations. So that XL TestView has one source of truth to depend its test result parsers on.
 
 2. Generate random results for importing test-data
 
