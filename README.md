@@ -21,7 +21,7 @@ This project has the following tools supported:
 
 |Build tool|Test tool|Format|
 |----------|---------|------|
-|[Fitnesse](./fitnesse)|NA|Fitnesse specific|
+|NA|[Fitnesse](./fitnesse)|Fitnesse specific|
 |[Cucumber](./mvnjunitcucumber)|Maven|JUnit|
 |[TestNG](./testng)|Gradle|JUnit|
 |[TestNG](./mvntestng)|Maven|JUnit|
