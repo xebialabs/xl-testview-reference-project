@@ -1,2 +1,3 @@
 ## Reference test for karma
-Run with `karma start karma.conf.js`
+1) Run `npm install`
+2) Run `/node_modules/karma/bin/karma start karma.conf.js`

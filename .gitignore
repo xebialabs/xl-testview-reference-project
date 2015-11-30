@@ -23,3 +23,6 @@ mvnjunitcucumber/target
 .idea
 *.iml
 .gradle
+npm-debug.log
+inputFiles.lst
+test-results
