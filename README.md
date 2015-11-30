@@ -14,6 +14,8 @@ There are roughly 3 variables when producing test results:
 
 test result files may be different when changing one of the variables. Therefor being very explicit about the variables is vital.
 
+## Build all test results
+Simply run build.sh. This will build all projects and store the results in a folder called test-results
 ## Test tools
 
 This project has the following tools supported:

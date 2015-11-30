@@ -38,6 +38,7 @@ mvn test
 cd ..
 mkdir test-results/mvnjunitcucumber
 cp mvnjunitcucumber/target/surefire-reports/*.xml test-results/mvnjunitcucumber
+cp mvnjunitcucumber/target/*.json test-results/mvnjunitcucumber
 
 # Maven Surefire + TestNG
 cd mvntestng
