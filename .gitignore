@@ -22,6 +22,7 @@ mvntestng/target
 mvnjunitcucumber/target
 .idea
 *.iml
+*.lst
 .gradle
 npm-debug.log
 inputFiles.lst
