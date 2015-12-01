@@ -54,6 +54,10 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.6'
 }
 
+task cleanFitNesse(type: Delete) {
+   delete project.file("FitNesseRoot/files")
+}
+
 /// === Custom Tasks
 
 class WriteFitNesseClasspath extends DefaultTask {
