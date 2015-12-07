@@ -6,6 +6,9 @@ mkdir test-results
 # karma
 cd karma
 rm TESTS-*.xml
+# be sure that any old node_modules things are removed so we can assume
+# that running karma will work
+rm -rf node_modules
 npm install
 ./node_modules/karma/bin/karma start karma.conf.js
 cd ..
