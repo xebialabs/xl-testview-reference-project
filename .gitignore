@@ -25,5 +25,5 @@ mvnjunitcucumber/target
 .gradle
 npm-debug.log
 inputFiles.lst
-test-results
+testresults
 RecentChanges
