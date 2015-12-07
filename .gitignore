@@ -11,11 +11,10 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 *.iws
-junit/build
-testng/build
 karma/node_modules/jasmine/node_modules
 karma/node_modules
 TESTS-*.xml
+gradletestng/build
 gradlejunit/build
 mvnjunit/target
 mvntestng/target

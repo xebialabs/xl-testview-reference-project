@@ -7,11 +7,11 @@
  * user guide available at http://gradle.org/docs/2.3/userguide/tutorial_java_projects.html
  */
 
-
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
+
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use 'jcenter' for resolving your dependencies.
@@ -28,6 +28,7 @@ dependencies {
     // TestNG is also supported by the Gradle Test task. Just change the
     // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
     // 'test.useTestNG()' to your build script.
+
   testCompile 'org.testng:testng:6.8.21'
 }
 
@@ -36,12 +37,11 @@ test {
   useTestNG()
 }
 
-task testXmlReporter(type: Test) {
-  //Uses the TestNG report (see: http://testng.org/doc/documentation-main.html, search for XML Reports)
-  //It will appear in build/reports/tests/
-  useTestNG()
-  options {
-    listeners << 'org.testng.reporters.XMLReporter'
-  }
+task testJunitReportReporter(type: Test) {
+    //Uses the TestNG report (see: http://testng.org/doc/documentation-main.html, search for XML Reports)
+    //It will appear in build/reports/tests/
+    useTestNG()
+    options {
+        listeners << 'org.testng.reporters.JUnitReportReporter'
+    }
 }
-
