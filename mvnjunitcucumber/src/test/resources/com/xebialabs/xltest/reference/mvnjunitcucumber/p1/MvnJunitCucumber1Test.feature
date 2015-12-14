@@ -22,3 +22,7 @@ Feature: Reference test
   Scenario: Perform something cool with a pending step
     Given a test without parameters
     When doing something that is pending
+
+  Scenario: Perform something that fails and thus skips steps after that
+    When I will fail
+    Then I will be skipped

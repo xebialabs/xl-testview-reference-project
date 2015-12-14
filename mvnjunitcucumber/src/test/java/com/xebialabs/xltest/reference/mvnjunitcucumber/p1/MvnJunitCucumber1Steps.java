@@ -29,6 +29,13 @@ public class MvnJunitCucumber1Steps {
         assertTrue(true);
     }
 
+    @Then("I will be skipped")
+    public void skipped() {
+        // skipped simply means the step is not executed. Because of a failed/pending/undefined step
+        // that was executed before this step.
+        assertTrue(true);
+    }
+
     @Then("I will fail")
     public void willFail() {
         assertTrue(false);
