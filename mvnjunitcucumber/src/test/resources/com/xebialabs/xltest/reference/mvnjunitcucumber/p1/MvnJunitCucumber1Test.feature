@@ -10,3 +10,12 @@ Feature: Reference test
     Given a test with parameter 3
     When and another parameter 'a'
     Then we still succeed
+
+  Scenario: Perform a test with an ignored step
+    Given a test without parameters
+    When I will be ignored
+
+  Scenario: Perform something cool without any step implemented yet
+    Given a test without parameters
+    When doing something that is not bound yet to any code
+    When doing nothing
