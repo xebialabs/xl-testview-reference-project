@@ -47,8 +47,8 @@ cp gradlejunit/build/test-results/*.xml testresults/gradle/junit
 cd mvnjunit
 mvn clean test
 cd ..
-mkdir testresults/mvn/surefire-junit
-cp mvnjunit/target/surefire-reports/*.xml testresults/mvn/surefire-junit
+mkdir testresults/mvn/junit
+cp mvnjunit/target/surefire-reports/*.xml testresults/mvn/junit
 
 # Maven + Cucubumber
 cd mvnjunitcucumber
@@ -68,8 +68,8 @@ cp mvnjunitcucumber/target/*.json testresults/mvn/cucumber/json
 cd mvntestng
 mvn clean test
 cd ..
-mkdir testresults/mvn/surefire-testng
-cp mvntestng/target/surefire-reports/*.xml testresults/mvn/surefire-testng
+mkdir testresults/mvn/testng
+cp mvntestng/target/surefire-reports/*.xml testresults/mvn/testng
 
 # Gradle and TestNG
 cd gradletestng
