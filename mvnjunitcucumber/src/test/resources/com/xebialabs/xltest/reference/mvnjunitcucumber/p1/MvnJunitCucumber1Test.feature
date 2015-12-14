@@ -18,4 +18,7 @@ Feature: Reference test
   Scenario: Perform something cool without any step implemented yet
     Given a test without parameters
     When doing something that is not bound yet to any code
-    When doing nothing
+
+  Scenario: Perform something cool with a pending step
+    Given a test without parameters
+    When doing something that is pending

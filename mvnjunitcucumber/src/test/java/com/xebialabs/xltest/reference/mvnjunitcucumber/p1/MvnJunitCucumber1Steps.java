@@ -3,10 +3,12 @@ package com.xebialabs.xltest.reference.mvnjunitcucumber.p1;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import cucumber.api.PendingException;
 import org.junit.Ignore;
 
 import static org.junit.Assert.assertTrue;
 
+// For all possible results, see: http://stackoverflow.com/a/13988384/214597
 public class MvnJunitCucumber1Steps {
     @Given("a test without parameters")
     public void addNewBook() {
@@ -15,6 +17,11 @@ public class MvnJunitCucumber1Steps {
 
     @When("doing nothing")
     public void when1() {
+    }
+
+    @When("doing something that is pending")
+    public void pending() {
+        throw new PendingException("Not yet implemented");
     }
 
     @Then("I will succeed")
