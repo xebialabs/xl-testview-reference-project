@@ -16,11 +16,11 @@ describe("Ref test", function() {
     throw "Exception with message";
   });
 
-  it("should throw with message", function() {
+  it("should throw with Error", function() {
     throw new Error("Error with message");
   });
 
-  it("should throw with message", function() {
+  it("should throw with Error inside expect", function() {
     expect(function(){throw new Error("Expected error")}).toThrow(new Error("Expected error"));
   });
 
