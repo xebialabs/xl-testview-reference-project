@@ -1,39 +1,44 @@
 buildscript {
-    repositories {
-      jcenter()
-    }
+  repositories {
+    jcenter()
+  }
 
-    dependencies {
-        classpath "com.ullink.gradle:gradle-msbuild-plugin:2.9"
-    }
+  dependencies {
+    classpath "com.ullink.gradle:gradle-msbuild-plugin:2.9"
+  }
 }
 
-apply plugin:'msbuild'
+import org.apache.tools.ant.taskdefs.condition.Os
+if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+  apply plugin:'msbuild'
 
-msbuild {
-  // mandatory (one of those)
-  solutionFile = 'VSTstTrx.sln'
-  projectFile = file('VSTstTrx/VSTstTrx.csproj')
+  msbuild {
+    // mandatory (one of those)
+    solutionFile = 'VSTstTrx.sln'
+    projectFile = file('VSTstTrx/VSTstTrx.csproj')
 
-  // MsBuild project name (/p:Project=...)
-  projectName = project.name
+    // MsBuild project name (/p:Project=...)
+    projectName = project.name
 
-  // Verbosity (/v:detailed, by default uses gradle logging level)
-  verbosity = 'detailed'
+    // Verbosity (/v:detailed, by default uses gradle logging level)
+    verbosity = 'detailed'
 
-  // targets to execute (/t:Clean;Rebuild, no default)
-  targets = ['Clean', 'Rebuild']
+    // targets to execute (/t:Clean;Rebuild, no default)
+    targets = ['Clean', 'Rebuild']
 
-  // Below values can override settings from the project file
+    // Below values can override settings from the project file
 
-  // overrides project OutputPath
-  destinationDir = 'build/msbuild/bin'
+    // overrides project OutputPath
+    destinationDir = 'build/msbuild/bin'
 
-  // overrides project IntermediaryOutputPath
-  intermediateDir = 'build/msbuild/obj'
+    // overrides project IntermediaryOutputPath
+    intermediateDir = 'build/msbuild/obj'
 
-  // Generates XML documentation file (from javadoc through custom DocLet)
-  generateDoc = false
+    // Generates XML documentation file (from javadoc through custom DocLet)
+    generateDoc = false
+  }
+} else {
+  println "WARNING: need windows to build"
 }
 
 // vstest.console.exe needs to be on the path
