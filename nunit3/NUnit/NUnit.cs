@@ -19,26 +19,26 @@ namespace Reference
         [Test]
         public void success()
         {
-            Assert.True(true);
+            Assert.That(true, Is.True);
         }
 
         [Test]
         public void fail()
         {
-            Assert.True(false);
+            Assert.That(false, Is.True);
         }
 
         [Test]
         public void failWithMessage()
         {
-            Assert.True(false, "Failed message");
+            Assert.That(false, Is.True, "Failed message");
         }
 
         [Test]
         [Ignore("Ignore")]
         public void ignore()
         {
-            Assert.False(true, "should be ignored");
+            Assert.That(false, "should be ignored");
         }
 
         [Test]
@@ -67,17 +67,16 @@ namespace Reference
         }
 
         [Test]
-        [ExpectedException(typeof(ApplicationException))]
         public void expectedException()
         {
-            throw new ApplicationException();
+            Assert.Throws(typeof(ApplicationException), delegate { throw new ApplicationException(); } );
         }
 
         [Test]
-        [ExpectedException(typeof(ApplicationException), ExpectedMessage = "Exception with message")]
         public void expectedExceptionWithMessage()
         {
-            throw new ApplicationException("Exception with message");
+            Exception e = Assert.Throws(typeof(ApplicationException), delegate { throw new ApplicationException("Exception with message"); });
+            Assert.That(e.Message, Is.EqualTo("Exception with message"));
         }
 
         [Test]
@@ -91,6 +90,13 @@ namespace Reference
         public void timeOut()
         {
             System.Threading.Thread.Sleep(200);
+        }
+
+        [Test, Explicit]
+        // an Explict test is executed only if it's specified during test execution
+        public void explicitTest()
+        {
+            Assert.That(true, Is.False, "should not be executed");
         }
 
     }

@@ -1,0 +1,53 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+
+  dependencies {
+    classpath "com.ullink.gradle:gradle-msbuild-plugin:2.9"
+  }
+}
+
+plugins {
+  id 'com.ullink.nunit' version '1.4'
+}
+
+import org.apache.tools.ant.taskdefs.condition.Os
+if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+  apply plugin:'msbuild'
+
+  msbuild {
+    // mandatory (one of those)
+    solutionFile = 'NUnit.sln'
+    projectFile = file('NUnit/NUnit.csproj')
+
+    // MsBuild project name (/p:Project=...)
+    projectName = project.name
+
+    // Verbosity (/v:detailed, by default uses gradle logging level)
+    verbosity = 'detailed'
+
+    // targets to execute (/t:Clean;Rebuild, no default)
+    targets = ['Clean', 'Build']
+
+    // Below values can override settings from the project file
+
+    // overrides project OutputPath
+    destinationDir = 'build/msbuild/bin'
+
+    // overrides project IntermediaryOutputPath
+    intermediateDir = 'build/msbuild/obj'
+
+    // Generates XML documentation file (from javadoc through custom DocLet)
+    generateDoc = false
+  }
+} else {
+  println "WARNING: need windows to build"
+}
+
+
+// will output results to build/nunit/reports
+nunit {
+  nunitVersion = '3.0.1'
+  testAssemblies = ['build/msbuild/bin/NUnit.exe']
+}
