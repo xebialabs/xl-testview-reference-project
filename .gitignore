@@ -13,6 +13,10 @@ TESTS-*.xml
 */target/
 vststtrx/VSTstTrx/bin/
 vststtrx/VSTstTrx/obj/
+nunit2/NUnit/bin/
+nunit2/NUnit/obj/
+nunit3/NUnit/bin/
+nunit3/NUnit/obj/
 .vs/
 .gradle/
 .idea/
