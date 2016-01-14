@@ -10,7 +10,11 @@ buildscript {
 
 plugins {
   id 'com.ullink.nunit' version '1.4'
+  id 'com.ullink.nuget' version '2.1'
 }
+
+apply plugin:'nuget'
+
 
 import org.apache.tools.ant.taskdefs.condition.Os
 if (Os.isFamily(Os.FAMILY_WINDOWS)) {
@@ -24,11 +28,13 @@ if (Os.isFamily(Os.FAMILY_WINDOWS)) {
     // MsBuild project name (/p:Project=...)
     projectName = project.name
 
+    dependsOn nugetRestore
+
     // Verbosity (/v:detailed, by default uses gradle logging level)
     verbosity = 'detailed'
 
     // targets to execute (/t:Clean;Rebuild, no default)
-    targets = ['Clean', 'Build']
+    targets = ['Clean', 'Rebuild']
 
     // Below values can override settings from the project file
 
@@ -50,4 +56,6 @@ if (Os.isFamily(Os.FAMILY_WINDOWS)) {
 nunit {
   nunitVersion = '3.0.1'
   testAssemblies = ['build/msbuild/bin/NUnit.exe']
+
+  dependsOn msbuild
 }

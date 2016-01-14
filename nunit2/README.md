@@ -11,11 +11,7 @@
 
 The gradle build will not run on a unix system at all (obviously).
 
-To build the solution:
-
-    gradlew msbuild
-
-To generate the NUnit results run:
+To build the solution and generate the NUnit results run:
 
     gradlew nunit
 
