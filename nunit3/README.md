@@ -23,8 +23,8 @@ Output is in `build/nunit`.
 
 ## Building with Visual Studio
 
-* Make sure nunit-console is on the path
+* Make sure nunit-console3 is on the path
 * Open the solution file (NUnit.sln)
 * Build the solution
-* From command line, run nunit-console NUnit/nunit.csproj
+* From command line, run nunit-console3 NUnit/nunit.csproj
 
