@@ -30,3 +30,6 @@ This project has the following tools supported:
 |[JUnit](./mvnjunit)|Maven|JUnit|
 |[JUnit](./gradlejunit)|Gradle|JUnit|
 |[Karma](./karma)|Karma|JUnit|
+|[TFS](./vststtrx)|VSTest/MSTest|TRX|
+|[NUnit 2.x](./nunit2)|Nunit 2.x|NUnit 2.x|
+|[NUnit 3.x](./nunit3)|NUnit 3.x|NUnit 3.x|
