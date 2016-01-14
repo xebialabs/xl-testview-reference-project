@@ -94,9 +94,22 @@ namespace Reference
 
         [Test, Explicit]
         // an Explict test is executed only if it's specified during test execution
+        // In NUnit 2.x it is reported in the results as Ignored, and in NUnit 3 as Explicit
         public void explicitTest()
         {
             Assert.That(true, Is.False, "should not be executed");
+        }
+
+        [Test]
+        public void testWithValuesAllSuccess([Values(11, 12, 13)] int x)
+        {
+            Assert.That(true, Is.True);
+        }
+
+        [Test]
+        public void testWithValuesPartialSuccess([Values(11, 12, 13)] int x)
+        {
+            Assert.That(x < 13);
         }
 
     }
