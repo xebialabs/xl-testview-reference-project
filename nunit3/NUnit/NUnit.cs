@@ -112,5 +112,11 @@ namespace Reference
             Assert.That(x < 13);
         }
 
+        [Test]
+        [Platform("Win98")]
+        public void skipped()
+        {
+            Assert.True(false);
+        }
     }
 }
