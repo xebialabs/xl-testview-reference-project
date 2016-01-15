@@ -74,6 +74,11 @@ namespace Reference
             Assert.Inconclusive("Inconclusive");
         }
 
+        [Test, Description("XLTestView referenct test description")]
+        public void withDescription()
+        {
+            Assert.True(true);
+        }
 
         [Test]
         public void exceptionWithMessage()
@@ -137,10 +142,34 @@ namespace Reference
             Assert.True(x < 13);
         }
 
+        [Test]
+        public void testWithRangeAllSuccess([Range(10, 15, 1)] int x)
+        {
+            Assert.True(x < 20);
+        }
+
+        [Test]
+        public void testWithRangePartialSuccess([Range(10, 15, 1)] int x)
+        {
+            Assert.True(x < 13);
+        }
+
         [Test, Platform("Win98")]
         public void skipped()
         {
             Assert.True(false);
+        }
+
+        [Test, Culture("jp")]
+        public void cultureSkipped()
+        {
+            Assert.True(false);
+        }
+
+        [Test, Culture(Exclude =("jp"))]
+        public void cultureExecuted()
+        {
+            Assert.True(true);
         }
 
         [Test, Category("XLTestView reference tests")]

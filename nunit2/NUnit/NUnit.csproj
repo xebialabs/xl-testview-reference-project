@@ -50,6 +50,7 @@
     <Compile Include="NUnitErrorInSetup.cs" />
     <Compile Include="NUnit.cs" />
     <Compile Include="NUnitRandom.cs" />
+    <Compile Include="NUnitTheory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
