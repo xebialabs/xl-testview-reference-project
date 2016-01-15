@@ -1,4 +1,4 @@
-package com.xebialabs.xltest.reference;
+package com.xebialabs.xltest.reference.mvnjunit;
 
 import org.junit.After;
 import org.junit.Test;
