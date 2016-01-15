@@ -13,28 +13,6 @@ namespace Reference
         static void Main(string[] args) {}
     }
 
-    class CustomAction : TestActionAttribute
-    {
-
-    }
-
-    class CustomActionFailsBefore : TestActionAttribute
-    {
-        public override void BeforeTest(TestDetails details)
-        {
-            throw new NotImplementedException("error");
-        }
-
-    }
-
-    class CustomActionFailsAfter : TestActionAttribute
-    {
-        public override void AfterTest(TestDetails details)
-        {
-            throw new NotImplementedException("error");
-        }
-    }
-
     [TestFixture]
     public class NUnitTest
     { 
@@ -144,22 +122,5 @@ namespace Reference
             Assert.That(true, Is.False);
         }
 
-        [Test, CustomAction]
-        public void customAction()
-        {
-            Assert.That(true, Is.True);
-        }
-
-        [Test, CustomActionFailsBefore]
-        public void customActionFailsBefore()
-        {
-            Assert.That(true, Is.True);
-        }
-
-        [Test, CustomActionFailsAfter]
-        public void customActionFailsAfter()
-        {
-            Assert.That(true, Is.True);
-        }
     }
 }
