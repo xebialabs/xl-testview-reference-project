@@ -12,7 +12,29 @@ namespace Reference
     {
         static void Main(string[] args) {}
     }
-    
+
+    class CustomAction : TestActionAttribute
+    {
+
+    }
+
+    class CustomActionFailsBefore : TestActionAttribute
+    {
+        public override void BeforeTest(TestDetails details)
+        {
+            throw new NotImplementedException("error");
+        }
+
+    }
+
+    class CustomActionFailsAfter : TestActionAttribute
+    {
+        public override void AfterTest(TestDetails details)
+        {
+            throw new NotImplementedException("error");
+        }
+    }
+
     [TestFixture]
     public class NUnitTest
     { 
@@ -34,8 +56,7 @@ namespace Reference
             Assert.True(false, "Failed message");
         }
 
-        [Test]
-        [Ignore("Ignore")]
+        [Test, Ignore("Ignore")]
         public void ignore()
         {
             Assert.False(true, "should be ignored");
@@ -66,15 +87,13 @@ namespace Reference
             throw new ApplicationException();
         }
 
-        [Test]
-        [ExpectedException(typeof(ApplicationException))]
+        [Test, ExpectedException(typeof(ApplicationException))]
         public void expectedException()
         {
             throw new ApplicationException();
         }
 
-        [Test]
-        [ExpectedException(typeof(ApplicationException), ExpectedMessage = "Exception with message")]
+        [Test, ExpectedException(typeof(ApplicationException), ExpectedMessage = "Exception with message")]
         public void expectedExceptionWithMessage()
         {
             throw new ApplicationException("Exception with message");
@@ -86,9 +105,14 @@ namespace Reference
             throw new SystemException();
         }
 
-        [Test]
-        [Timeout(100)]
+        [Test, Timeout(100)]
         public void timeOut()
+        {
+            System.Threading.Thread.Sleep(200);
+        }
+
+        [Test, MaxTime(100)]
+        public void maxTime()
         {
             System.Threading.Thread.Sleep(200);
         }
@@ -113,12 +137,40 @@ namespace Reference
             Assert.True(x < 13);
         }
 
-        [Test]
-        [Platform("Win98")]
+        [Test, Platform("Win98")]
         public void skipped()
         {
             Assert.True(false);
         }
 
+        [Test, Category("XLTestView reference tests")]
+        public void category1()
+        {
+            Assert.True(true);
+        }
+
+        [Test, Category("XLTestView reference tests")]
+        public void category2()
+        {
+            Assert.True(true);
+        }
+
+        [Test, CustomAction]
+        public void customAction()
+        {
+            Assert.True(true);
+        }
+
+        [Test, CustomActionFailsBefore]
+        public void customActionFailsBefore()
+        {
+            Assert.True(true);
+        }
+
+        [Test, CustomActionFailsAfter]
+        public void customActionFailsAfter()
+        {
+            Assert.True(true);
+        }
     }
 }

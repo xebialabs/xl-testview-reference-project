@@ -12,7 +12,29 @@ namespace Reference
     {
         static void Main(string[] args) {}
     }
-    
+
+    class CustomAction : TestActionAttribute
+    {
+
+    }
+
+    class CustomActionFailsBefore : TestActionAttribute
+    {
+        public override void BeforeTest(TestDetails details)
+        {
+            throw new NotImplementedException("error");
+        }
+
+    }
+
+    class CustomActionFailsAfter : TestActionAttribute
+    {
+        public override void AfterTest(TestDetails details)
+        {
+            throw new NotImplementedException("error");
+        }
+    }
+
     [TestFixture]
     public class NUnitTest
     { 
@@ -34,8 +56,7 @@ namespace Reference
             Assert.That(false, Is.True, "Failed message");
         }
 
-        [Test]
-        [Ignore("Ignore")]
+        [Test, Ignore("Ignore")]
         public void ignore()
         {
             Assert.That(false, "should be ignored");
@@ -85,9 +106,14 @@ namespace Reference
             throw new SystemException();
         }
 
-        [Test]
-        [Timeout(100)]
+        [Test, Timeout(100)]
         public void timeOut()
+        {
+            System.Threading.Thread.Sleep(200);
+        }
+
+        [Test, MaxTime(100)]
+        public void maxTime()
         {
             System.Threading.Thread.Sleep(200);
         }
@@ -112,11 +138,28 @@ namespace Reference
             Assert.That(x < 13);
         }
 
-        [Test]
-        [Platform("Win98")]
+        [Test, Platform("Win98")]
         public void skipped()
         {
-            Assert.True(false);
+            Assert.That(true, Is.False);
+        }
+
+        [Test, CustomAction]
+        public void customAction()
+        {
+            Assert.That(true, Is.True);
+        }
+
+        [Test, CustomActionFailsBefore]
+        public void customActionFailsBefore()
+        {
+            Assert.That(true, Is.True);
+        }
+
+        [Test, CustomActionFailsAfter]
+        public void customActionFailsAfter()
+        {
+            Assert.That(true, Is.True);
         }
     }
 }

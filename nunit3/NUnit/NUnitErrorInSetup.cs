@@ -10,6 +10,38 @@ namespace Reference
     [TestFixture]
     public class NUnitErrorInSetup
     {
+        [SetUp]
+        public void Setup()
+        {
+            throw new ArgumentException();
+        }
+
+        [Test]
+        public void TestSomething()
+        {
+            Assert.That(true, Is.True);
+        }
+    }
+
+    [TestFixture]
+    public class NUnitErrorInTearDown
+    {
+        [TearDown]
+        public void Teardown()
+        {
+            throw new ArgumentException();
+        }
+
+        [Test]
+        public void TestSomething()
+        {
+            Assert.That(true, Is.True);
+        }
+    }
+
+    [TestFixture]
+    public class NUnitErrorInFixtureSetup
+    {
         [TestFixtureSetUp]
         public void Setup()
         {
@@ -19,7 +51,22 @@ namespace Reference
         [Test]
         public void TestSomething()
         {
-            Assert.True(true);
+            Assert.That(true, Is.True);
+        }
+    }
+
+    public class NUnitErrorInFixtureTearDown
+    {
+        [TestFixtureTearDown]
+        public void Teardown()
+        {
+            throw new ArgumentException();
+        }
+
+        [Test]
+        public void TestSomething()
+        {
+            Assert.That(true, Is.True);
         }
     }
 }
