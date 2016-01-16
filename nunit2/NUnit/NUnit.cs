@@ -74,7 +74,7 @@ namespace Reference
             Assert.Inconclusive("Inconclusive");
         }
 
-        [Test, Description("XLTestView referenct test description")]
+        [Test, Description("XL TestView reference test description")]
         public void withDescription()
         {
             Assert.True(true);
@@ -198,6 +198,12 @@ namespace Reference
 
         [Test, CustomActionFailsAfter]
         public void customActionFailsAfter()
+        {
+            Assert.True(true);
+        }
+
+        [Test, Repeat(3)]
+        public void repeatedTest()
         {
             Assert.True(true);
         }
