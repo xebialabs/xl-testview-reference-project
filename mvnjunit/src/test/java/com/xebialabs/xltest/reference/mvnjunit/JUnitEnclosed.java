@@ -7,10 +7,10 @@ import org.junit.runner.RunWith;
 import static junit.framework.TestCase.assertTrue;
 
 /**
- *  Tests executed with Enclosed and inner classes may generate duplicate test results.
+ *  Tests executed with Enclosed and inner classes may generate duplicate test results in some reporters.
  */
 @RunWith(Enclosed.class)
-public class JUnitEnclosedTest {
+public class JUnitEnclosed {
 
     public static class Inner {
 
